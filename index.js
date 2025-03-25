@@ -1,12 +1,14 @@
 // Navbar
-
-const navbar = document.querySelector(".navbar");
+const desktopNavbar = document.querySelector("#desktop-navbar");
+const mobileNavbar = document.querySelector("#mobile-navbar");
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 0) {
-        navbar.classList.add("scrolled");
+        desktopNavbar.classList.add("scrolled");
+        mobileNavbar.classList.add("scrolled");
     } else {
-        navbar.classList.remove("scrolled");
+        desktopNavbar.classList.remove("scrolled");
+        mobileNavbar.classList.remove("scrolled");
     }
 });
 
@@ -73,3 +75,15 @@ color3.addEventListener("click", () => {
     colorImg.src = "images/p_region_RG8870_BSR_00_01.png";
 });
 
+// Responsive
+const windowWidth = window.innerWidth;
+
+if (windowWidth > 1024) {
+    desktopNavbar.classList.remove("is-hidden");
+    mobileNavbar.classList.add("is-hidden");
+}
+
+if (windowWidth < 1024) {
+    desktopNavbar.classList.add("is-hidden");
+    mobileNavbar.classList.remove("is-hidden");
+}
