@@ -7559,7 +7559,7 @@ a.navbar-item,
   background-color: hsla(var(--bulma-navbar-h), var(--bulma-navbar-s), calc(var(--bulma-navbar-item-background-l) + var(--bulma-navbar-item-background-l-delta)), var(--bulma-navbar-item-background-a));
   cursor: pointer;
 }
-a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover,
+a.navbar-item:focus, a.navbar-item:focus-within,
 .navbar-link:focus,
 .navbar-link:focus-within,
 .navbar-link:hover {

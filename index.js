@@ -1,5 +1,20 @@
+// Navbar
+
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 0) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+
 // Zoom
+const zoomImgBox = document.querySelector(".zoom-img");
 const zoomImg = document.querySelector(".zoom-img img");
+
+zoomImgBox.setAttribute("data-text", "Black Rutile")
 
 let posX = 0, posY = 0;
 
@@ -38,6 +53,7 @@ color1.addEventListener("click", () => {
     color2.classList.remove("is-active-color");
     color3.classList.remove("is-active-color");
 
+    zoomImgBox.setAttribute("data-text", "Black Rutile")
     colorImg.src = "images/p_region_RG8870_BRE_00_01.png";
 });
 color2.addEventListener("click", () => {
@@ -45,6 +61,7 @@ color2.addEventListener("click", () => {
     color2.classList.add("is-active-color");
     color3.classList.remove("is-active-color");
     
+    zoomImgBox.setAttribute("data-text", "Sodalite")
     colorImg.src = "images/p_region_RG8870_SDE_00_01.png";
 });
 color3.addEventListener("click", () => {
@@ -52,6 +69,7 @@ color3.addEventListener("click", () => {
     color2.classList.remove("is-active-color");
     color3.classList.add("is-active-color");
     
+    zoomImgBox.setAttribute("data-text", "Brownish Sphalerite")
     colorImg.src = "images/p_region_RG8870_BSR_00_01.png";
 });
 
