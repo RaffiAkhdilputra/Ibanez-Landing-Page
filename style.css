@@ -51,6 +51,16 @@ body {
   overflow: hidden;
 }
 
+.zoom-img::before {
+  content: "Ibanez RG Series";
+  color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  font-weight: 1000;
+  font-size: 64px;
+  font-style: italic;
+  bottom: 0;
+}
+
 .zoom-img:hover {
   cursor: move;
   border: 1px white solid;
