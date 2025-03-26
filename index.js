@@ -1,15 +1,43 @@
 // Navbar
 const desktopNavbar = document.querySelector("#desktop-navbar");
+const tabletNavbar = document.querySelector("#tablet-navbar");
 const mobileNavbar = document.querySelector("#mobile-navbar");
+
+// For Mobile
+const navbarBurger = document.querySelector(".burger");
+const navigation = document.querySelector(".mobile-menu");
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 0) {
         desktopNavbar.classList.add("scrolled");
+        tabletNavbar.classList.add("scrolled");
         mobileNavbar.classList.add("scrolled");
-    } else {
+    } else if ((window.scrollY === 0) && !(navigation.innerHTML && navigation.innerHTML.trim() !== "")) {
         desktopNavbar.classList.remove("scrolled");
+        tabletNavbar.classList.remove("scrolled");
         mobileNavbar.classList.remove("scrolled");
     }
+});
+
+navbarBurger.addEventListener("click", () => {
+    if (!mobileNavbar.classList.contains("scrolled")) {
+        mobileNavbar.classList.add("scrolled");
+    } else if ((mobileNavbar.classList.contains("scrolled")) && (window.scrollY === 0)) {
+        mobileNavbar.classList.remove("scrolled");
+    }
+
+    if (navigation.innerHTML && navigation.innerHTML.trim() !== "") {
+        navigation.innerHTML = "";
+    } else {
+        navigation.innerHTML = `
+            <a class="navbar-item burger" href="">Electric Guitars</a>
+            <a class="navbar-item burger" href="">Basses</a>
+            <a class="navbar-item burger" href="">Hollow Bodies</a>
+            <a class="navbar-item burger" href="">Electronics</a>
+            <a class="navbar-item burger" href="">Accessories</a>
+        `;
+    }
+    
 });
 
 // Zoom
@@ -80,10 +108,18 @@ const windowWidth = window.innerWidth;
 
 if (windowWidth > 1024) {
     desktopNavbar.classList.remove("is-hidden");
+    tabletNavbar.classList.add("is-hidden");
     mobileNavbar.classList.add("is-hidden");
 }
 
 if (windowWidth < 1024) {
+    desktopNavbar.classList.add("is-hidden");
+    tabletNavbar.classList.remove("is-hidden");
+    mobileNavbar.classList.add("is-hidden");
+} 
+
+if (windowWidth < 530) { 
+    tabletNavbar.classList.add("is-hidden");
     desktopNavbar.classList.add("is-hidden");
     mobileNavbar.classList.remove("is-hidden");
 }
