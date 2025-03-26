@@ -105,6 +105,8 @@ color3.addEventListener("click", () => {
 
 // Responsive
 const windowWidth = window.innerWidth;
+const mainContentBtn = document.querySelector(".content .button");
+const artistLevel = document.querySelector(".artist-level");
 
 if (windowWidth > 1024) {
     desktopNavbar.classList.remove("is-hidden");
@@ -118,8 +120,18 @@ if (windowWidth < 1024) {
     mobileNavbar.classList.add("is-hidden");
 } 
 
+if (windowWidth < 768) {
+    artistLevel.classList.add("my-6", "is-display-flex", "is-justify-content-space-around");
+}
+
 if (windowWidth < 530) { 
     tabletNavbar.classList.add("is-hidden");
     desktopNavbar.classList.add("is-hidden");
     mobileNavbar.classList.remove("is-hidden");
+    
+    mainContentBtn.innerHTML = "Get Your Own!";
+}
+
+
+if (windowWidth < 450) {
 }

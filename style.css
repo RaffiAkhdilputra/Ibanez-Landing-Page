@@ -88,21 +88,12 @@ body {
 }
 
 .main-content {
+  background-color: #6e6464;
   background-image: url(https://images.unsplash.com/photo-1526478806334-5fd488fcaabc?q=80&w=2116&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-blend-mode: multiply;
   background-position: left center;
   padding: 0.5rem;
   color: white;
-}
-
-.main-content::before {
-  content: "";
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .main-content h1 {
