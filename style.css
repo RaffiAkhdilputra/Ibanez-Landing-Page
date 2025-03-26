@@ -4,12 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  overflow-x: hidden;
-  scrollbar-color: transparent;
-  scrollbar-width: thin;
-}
-
 .navbar {
   background-color: transparent !important;
 }
@@ -146,13 +140,13 @@ body {
   overflow: hidden;
 }
 
-.is-active-burger {
-  animation: rotation 0.5s ease-in-out;
-  transition: all 0.2s ease-out;
+.warning-icon i {
+  cursor: default;
 }
 
 .warning-message {
   position: absolute;
+  cursor: default;
   padding: 5px 15px 0px 15px;
   z-index: 1;
   top: 10.5rem;
@@ -205,18 +199,5 @@ body {
 
   .container iframe {
     height: 24rem;
-  }
-}
-
-/* @media screen and (max-width: 530px) {
-  aaa 
-} */
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }

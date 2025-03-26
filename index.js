@@ -120,11 +120,19 @@ const warningMsg = document.querySelector(".warning-message")
 subscribeBtn.addEventListener("click", () => {
     const emailValue = inputArea.value.trim();
 
+    inputArea.classList.add("is-loading");
+
     if (emailValue !== "") {
         try {
             if (validateEmail(emailValue)) {
                 subscribeBtn.innerHTML = "Subscribed";
                 subscribeBtn.disabled = true;
+                subscribeBtn.classList.add("is-success");
+                inputArea.classList.add("is-success");
+                inputArea.disabled = true;
+
+                warningIcon.classList.add("is-hidden");
+                warningMsg.classList.add("is-hidden");
             } else {
                 // console.log("Email tidak valid. Silakan masukkan email yang benar.");
                 inputArea.classList.add("is-warning");
@@ -179,8 +187,4 @@ if (windowWidth < 530) {
     mobileNavbar.classList.remove("is-hidden");
     
     mainContentBtn.innerHTML = "Get Your Own!";
-}
-
-
-if (windowWidth < 450) {
 }
