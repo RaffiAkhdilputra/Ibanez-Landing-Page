@@ -103,15 +103,63 @@ color3.addEventListener("click", () => {
     colorImg.src = "images/p_region_RG8870_BSR_00_01.png";
 });
 
+// Subscribe Button
+const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
+const subscribeBtn = document.querySelector("#subscribe-btn");
+const inputArea = document.getElementById("email");
+const warningIcon = document.querySelector(".warning-icon")
+const warningMsg = document.querySelector(".warning-message")
+
+subscribeBtn.addEventListener("click", () => {
+    const emailValue = inputArea.value.trim();
+
+    if (emailValue !== "") {
+        try {
+            if (validateEmail(emailValue)) {
+                subscribeBtn.innerHTML = "Subscribed";
+                subscribeBtn.disabled = true;
+            } else {
+                // console.log("Email tidak valid. Silakan masukkan email yang benar.");
+                inputArea.classList.add("is-warning");
+                warningIcon.classList.remove("is-hidden");
+                warningMsg.classList.remove("is-hidden");
+                warningMsg.innerHTML = "Invalid email!";
+            }
+        } catch (error) {
+            inputArea.classList.add("is-warning");
+            warningIcon.classList.remove("is-hidden");
+            warningMsg.classList.remove("is-hidden");
+            warningMsg.innerHTML = error;
+        }
+    } else {
+        // console.log("Email tidak boleh kosong.");
+        inputArea.classList.add("is-warning");
+        warningIcon.classList.remove("is-hidden");
+        warningMsg.classList.remove("is-hidden");
+        warningMsg.innerHTML = "Field cannot be empty!";
+    }
+});
+
 // Responsive
 const windowWidth = window.innerWidth;
 const mainContentBtn = document.querySelector(".content .button");
 const artistLevel = document.querySelector(".artist-level");
+const artistHide = document.querySelector(".artist-hide");
+const scrolledLevel = document.querySelector(".with-scroll");
 
 if (windowWidth > 1024) {
     desktopNavbar.classList.remove("is-hidden");
     tabletNavbar.classList.add("is-hidden");
     mobileNavbar.classList.add("is-hidden");
+
+    scrolledLevel.classList.remove("with-scroll")
 }
 
 if (windowWidth < 1024) {
@@ -121,6 +169,7 @@ if (windowWidth < 1024) {
 } 
 
 if (windowWidth < 768) {
+    artistHide.classList.add("is-hidden");
     artistLevel.classList.add("my-6", "is-display-flex", "is-justify-content-space-around");
 }
 

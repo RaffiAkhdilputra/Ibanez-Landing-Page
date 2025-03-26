@@ -121,7 +121,7 @@
       <div class="artist-level">
         <div class="level">
           <div class="level-item has-text-centered">
-            <div>
+            <div class="artist-hide">
               <p class="heading">Jake Bowen</p>
               <p class="title">JBM</p>
             </div>
@@ -291,9 +291,15 @@
       <h1 class="title has-text-centered">Keep in touch!</h1>
       <p class="subtitle has-text-centered">Subscribe to our newsletter</p>
       <div class="field">
-        <p class="control mx-6">
-          <input class="input mt-3" placeholder="Enter your email" />
-          <button class="button is-link is-fullwidth mt-3">Subscribe</button>
+        <p id="warning-message" class="warning-message subtitle is-size-6 has-background-danger has-text-centered is-hidden"></p>
+        <p class="control has-icons-right">
+          <input id="email" class="input" type="email" placeholder="Enter your email" />
+          <span class="warning-icon icon is-small is-right is-hidden">
+            <i class="fa-solid fa-triangle-exclamation has-text-warning"></i>
+          </span>
+        </p>
+        <p class="control">
+          <button id="subscribe-btn" class="button is-link is-fullwidth mt-3">Subscribe</button>
         </p>
       </div>
     </div>
